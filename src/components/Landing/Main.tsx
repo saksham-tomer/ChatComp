@@ -33,6 +33,7 @@ import NumberTicker from "../magicui/number-ticker";
 import FAQSection from "./Faq";
 import WritingToolComponent from "./Keyboard";
 import Footer from "./Footer";
+import { useRouter } from "next/navigation";
 
 const designData = [
   {
@@ -64,6 +65,9 @@ const Main = () => {
     "https://ecdn.teacherspayteachers.com/thumbuserbig/Teach-Love-Create-Aka-The-Sped-Doctor-1706495573/1414784.jpg",
     "https://borealos.com/dynamic/img/3-como-crear-memoji.jpg",
   ];
+
+  const router = useRouter();
+
   return (
     <div className="bg-gradient-to-r min-h-screen from-rose-50 mt-12 px-8 md:px-12 lg:px-16 to-orange-50">
       <section className="flex flex-col md:flex-row md:pt-16 md:w-1/2 xl:px-20 pt-12 min-h-full min-w-full">
@@ -80,11 +84,16 @@ const Main = () => {
             for work on creative industry
           </p>
           <div className="flex flex-col md:flex-row mr-auto gap-2 items-center justify-center">
-            <RainbowButton>
+            <RainbowButton onClick={() => router.push("/dashboard")}>
               Get Started{" "}
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </RainbowButton>
-            <button className="border font-bold border-black px-4 hover:bg-slate-50  py-1.5 items-center gap-2 rounded-2xl flex justify-between">
+            <button
+              onClick={() =>
+                router.push("https://www.youtube.com/watch?v=nrNN-r_LAr8")
+              }
+              className="border font-bold border-black px-4 hover:bg-slate-50  py-1.5 items-center gap-2 rounded-2xl flex justify-between"
+            >
               <PlayIcon className="text-white rounded-full w-8  h-8 p-2 bg-black" />
               <span>Watch A Demo</span>
             </button>
@@ -276,7 +285,12 @@ const Main = () => {
             )}
           >
             <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:duration-300 hover:text-neutral-400 max-w-xs">
-              <span className="text-gray-100">✨ Learn More</span>
+              <span
+                onClick={() => router.push("/dashboard")}
+                className="text-gray-100"
+              >
+                ✨ Learn More
+              </span>
 
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out text-white group-hover:translate-x-0.5" />
             </AnimatedShinyText>
